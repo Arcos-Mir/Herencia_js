@@ -74,4 +74,39 @@ a1.reprobar();
 /* let a2 = new Alumno('Ana', 'Marquez', 25, 10.0);
 console.log(a2); */
 
+class Empleado extends Persona {
+    constructor(nombre, apellido, edad, antiguedad, salario) {
+        super(nombre, apellido, edad)
+        this.antiguedad = antiguedad;
+        this.salario = salario;
+        this.ahorro = 10000;
+    }
+    gastar(cantidad) {
+        this.ahorro = this.ahorro - cantidad;
+    }
+}
 
+let empleado = new Empleado('Carla', 'Aguirre', 30, 5, 1000);
+console.log(empleado);
+empleado.saludar();
+empleado.caminar();
+empleado.gastar(500);
+
+
+//tercer nivel de herencia
+
+class Profesor extends Empleado {
+    constructor(nombre, apellido, edad, antiguedad, salario, materia) {
+        super(nombre, apellido, edad, antiguedad, salario)
+        this.materia = materia;
+    }
+    darClase() {
+        console.log('bla, bla, bla');
+    }
+}
+
+let profe1 = new Profesor('Carlos', 'Lozano', 30, 10, 111, 'matemáticas');
+console.log(profe1);
+profe1.saludar();
+profe1.gastar(2000);
+profe1.darClase();
